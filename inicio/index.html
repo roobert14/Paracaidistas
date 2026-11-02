@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Misión rescate · Salva a los paracaidistas</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <script src="js/juego.js" defer></script>
+</head>
+<body>
+  <header class="cabecera">
+    <div class="marca"><span class="emblema" aria-hidden="true">↟</span><div><p class="etiqueta">OPERACIÓN 050</p><h1>Misión rescate<span>.</span></h1></div></div>
+    <p class="instruccion">Un toque. Un paracaídas. <strong>Una vida a salvo.</strong></p>
+    <div class="controles"><div><label for="dificultad">Dificultad</label><select id="dificultad"><option value="facil">Fácil</option><option value="normal" selected>Normal</option><option value="dificil">Difícil</option></select></div><button id="ver-historial" class="boton-secundario" type="button">Ver partidas</button></div>
+  </header>
+  <main>
+    <section class="marcadores" aria-label="Marcadores de la partida">
+      <div><span class="indicador verde"></span><span>Salvados</span><strong id="salvados">00</strong></div>
+      <div><span class="indicador naranja"></span><span>Impactos <small>/ 3</small></span><strong id="estrellados">00</strong></div>
+      <div><span>Resueltos <small>/ 50</small></span><strong id="resueltos">00</strong></div>
+    </section>
+    <section id="escenario" aria-label="Zona de rescate">
+      <div class="decoracion" aria-hidden="true"><span class="nube nube-a"></span><span class="nube nube-b"></span><span class="nube nube-c"></span><span class="coordenada">SECTOR 01 / ZONA DE DESCENSO</span><span class="cota">↓ ZONA SEGURA</span></div>
+      <div id="personajes" aria-label="Paracaidistas"></div>
+      <div id="suelo" aria-hidden="true"><span>ÁREA DE ATERRIZAJE</span><i></i></div>
+      <section id="panel-inicio" class="panel" aria-labelledby="titulo-inicio">
+        <p class="etiqueta">50 PARACAIDISTAS · UNA MISIÓN</p>
+        <div class="ilustracion" aria-hidden="true"><img src="img/paracaidas.gif" alt=""></div>
+        <h2 id="titulo-inicio">El rescate está<br>en tus manos<span>.</span></h2>
+        <p>Pulsa a los paracaidistas mientras caen<br>para abrir su paracaídas.</p>
+        <button id="iniciar" class="boton">Comenzar misión <span aria-hidden="true">↗</span></button>
+        <p class="nota">La misión termina con 3 impactos o 50 descensos.</p>
+      </section>
+      <section id="panel-final" class="panel" aria-labelledby="titulo-final" hidden>
+        <p class="etiqueta">INFORME DE RESCATE</p>
+        <h2 id="titulo-final">Misión finalizada<span>.</span></h2>
+        <p id="resultado" role="status"></p>
+        <form id="guardar-partida">
+          <label for="nombre">Tu nombre</label>
+          <div class="fila-formulario"><input id="nombre" name="nombre" required maxlength="40" autocomplete="nickname" placeholder="Escribe tu nombre"><button id="guardar" class="boton" type="submit">Guardar partida</button></div>
+          <p id="estado-guardado" class="mensaje" role="status"></p>
+        </form>
+        <button id="reiniciar" class="boton">Volver a intentarlo <span aria-hidden="true">↻</span></button>
+      </section>
+    </section>
+  </main>
+  <dialog id="historial" aria-labelledby="titulo-historial">
+    <div class="titulo-historial"><h2 id="titulo-historial">Partidas jugadas</h2><button id="cerrar-historial" class="boton-secundario" type="button">Cerrar</button></div>
+    <p>1 punto por paracaidista salvado. Registros guardados en este navegador.</p>
+    <label for="orden-historial">Ordenar por</label>
+    <select id="orden-historial"><option value="fecha">Fecha: más recientes primero</option><option value="puntuacion">Puntuación: mayor primero</option></select>
+    <p id="estado-historial" class="mensaje" role="status"></p>
+    <div class="tabla-historial"><table><caption class="solo-lectores">Registro de partidas</caption><thead><tr><th scope="col">Nombre</th><th scope="col">Fecha</th><th scope="col">Puntos</th><th scope="col">Impactos</th><th scope="col">Dificultad</th></tr></thead><tbody id="filas-historial"></tbody></table></div>
+  </dialog>
+  <footer><span>¡SALVA A LOS PARACAIDISTAS!</span><span>RATÓN O PANTALLA TÁCTIL <b aria-hidden="true">✳</b></span></footer>
+</body>
+</html>
