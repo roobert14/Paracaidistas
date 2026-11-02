@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Misión rescate · Salva a los paracaidistas</title>
   <link rel="stylesheet" href="css/estilos.css">
+  <script type="module" src="js/juego.js"></script>
+  <script src="js/juego.js" defer type="module"></script>
   <script src="js/juego.js" type="module" defer></script>
 </head>
 <body>
@@ -16,7 +18,7 @@
   <main>
     <section class="marcadores" aria-label="Marcadores de la partida">
       <div><span class="indicador verde"></span><span>Salvados</span><strong id="salvados">00</strong></div>
-      <div><span class="indicador naranja"></span><span>Impactos <small>/ 3</small></span><strong id="estrellados">00</strong></div>
+      <div><span class="indicador naranja"></span><span>Impactos <small>/ 3</small></span><strong id="estrelladoss">00</strong></div>
       <div><span>Resueltos <small>/ 50</small></span><strong id="resueltos">00</strong></div>
     </section>
     <section id="escenario" aria-label="Zona de rescate">
@@ -53,5 +55,6 @@
     <div class="tabla-historial"><table><caption class="solo-lectores">Registro de partidas</caption><thead><tr><th scope="col">Nombre</th><th scope="col">Fecha</th><th scope="col">Puntos</th><th scope="col">Impactos</th><th scope="col">Dificultad</th></tr></thead><tbody id="filas-historial"></tbody></table></div>
   </dialog>
   <footer><span>¡SALVA A LOS PARACAIDISTAS!</span><span>RATÓN O PANTALLA TÁCTIL <b aria-hidden="true">✳</b></span></footer>
+ 
 </body>
 </html>
