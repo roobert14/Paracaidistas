@@ -133,7 +133,7 @@ function actualizarCaida() {
     }
 }
 
-// --- INTERACCIÓN DEL JUGADOR ---
+
 export function paracaidasPersonaje(evento) {
     const elemento = evento.target.closest(".personaje");
     if (!elemento) return;
@@ -148,7 +148,8 @@ export function paracaidasPersonaje(evento) {
     if (personaje.elemento) personaje.elemento.src = "./img/paracaidas.gif";
 }
 
-// --- INICIALIZACIÓN ---
+
+
 export function iniciarJuego() {
     if (intervaloId !== null) clearInterval(intervaloId);
 
@@ -165,7 +166,7 @@ export function iniciarJuego() {
     intervaloId = setInterval(actualizarCaida, INTERVALO_MS);
 }
 
-// Escuchador para desplegar el paracaídas mediante delegación de eventos
+
 if (divPersonajes) {
     divPersonajes.addEventListener("click", paracaidasPersonaje);
 }
