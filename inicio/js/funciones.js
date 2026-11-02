@@ -1,6 +1,6 @@
 "use strict";
 
-// --- CONSTANTES ---
+
 const cantidadPersonajes = 50;
 const gravedad = 900;
 const velocidadConParacaidas = 110;
@@ -10,14 +10,14 @@ const FPS = 60;
 const INTERVALO_MS = 2000 / FPS; // 1000ms / 60fps ≈ 16.6ms
 const DELTA_SEGUNDOS = 1 / FPS;
 
-// --- ESTADO DEL JUEGO ---
+
 let personajesEnJuego = [];
 let intervaloId = null;
 let personajesCompletados = 0;
 let salvados = 0;
 let estrellados = 0;
 
-// --- ELEMENTOS DEL DOM ---
+
 const divPersonajes = document.querySelector("#personajes");
 const escenario = document.querySelector("#escenario");
 const suelo = document.querySelector("#suelo");
@@ -29,7 +29,7 @@ const historial = document.querySelector("#historial");
 const cerrarHistorial = document.querySelector("#cerrar-historial");
 const salvadoss = document.querySelector("#salvados")
 
-// --- EVENTOS DEL HISTORIAL ---
+
 if (botonHistorial && historial) {
     botonHistorial.addEventListener("click", function () {
         historial.classList.add("mostrar");
@@ -42,7 +42,7 @@ if (cerrarHistorial && historial) {
     });
 }
 
-// --- CREACIÓN DE DATOS Y ELEMENTOS ---
+
 export function objPersonajes() {
     const anchoDisponible = Math.max(0, (escenario?.clientWidth || 0) - 64);
     return Array.from({ length: cantidadPersonajes }, (_, id) => ({
@@ -74,7 +74,7 @@ export function crearElementosDOM() {
     });
 }
 
-// --- BUCLE PRINCIPAL Y LÓGICA DE FÍSICAS ---
+
 function actualizarCaida() {
     if (!escenario || !suelo) return;
     const limiteY = Math.max(0, escenario.clientHeight - suelo.offsetHeight - altoPersonaje);
@@ -106,7 +106,6 @@ function actualizarCaida() {
                     if (estrelladoss) estrelladoss.textContent = estrellados;
                     if(estrellados == 3){
                         alert("Game Over");
-                        clearInterval(timer);
                     }
                 }
             }
